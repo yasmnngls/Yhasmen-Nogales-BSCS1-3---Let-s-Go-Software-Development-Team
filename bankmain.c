@@ -1,5 +1,9 @@
 #include <stdio.h> 
 
+void checkBalance();
+
+float accMoney = 0;
+
 int main (){
 
     int inputCheck; 
@@ -44,4 +48,8 @@ int main (){
        } while (1);
 	
 	return 0;
+}
+
+void checkBalance() {
+    printf("\tHello! Your current balance is: %.2lf\n", accMoney);
 }
