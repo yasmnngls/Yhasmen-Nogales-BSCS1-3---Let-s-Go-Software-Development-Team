@@ -1,8 +1,10 @@
 #include <stdio.h> 
 
 void checkBalance();
+void moneyDeposit();
 
 float accMoney = 0;
+double depositMoney = 0;
 
 int main (){
 
@@ -52,4 +54,16 @@ int main (){
 
 void checkBalance() {
     printf("\tHello! Your current balance is: %.2lf\n", accMoney);
+}
+
+void moneyDeposit() {
+
+    printf("\tEnter money you wish to deposit: ");
+    if (scanf("%lf", &depositMoney) != 1 || depositMoney <= 0) {
+        printf("\tTransaction Failed! Invalid input or amount must be greater than 0.\n");
+        while (getchar() != '\n');  
+    } else {
+        accMoney += depositMoney;
+        printf("\tTransaction Completed! Your updated balance is: %.2lf\n", accMoney);
+    }
 }
