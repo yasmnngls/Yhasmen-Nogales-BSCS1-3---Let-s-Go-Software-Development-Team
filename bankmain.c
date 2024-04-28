@@ -2,9 +2,11 @@
 
 void checkBalance();
 void moneyDeposit();
+void moneyWithdrawal();
 
 float accMoney = 0;
 double depositMoney = 0;
+double withdrawalAmount = 0;
 
 int main (){
 
@@ -64,6 +66,17 @@ void moneyDeposit() {
         while (getchar() != '\n');  
     } else {
         accMoney += depositMoney;
+        printf("\tTransaction Completed! Your updated balance is: %.2lf\n", accMoney);
+    }
+}
+
+void moneyWithdrawal() {
+    printf("\tEnter money you wish to withdraw: ");
+    if (scanf("%lf", &withdrawalAmount) != 1 || withdrawalAmount <= 0 || withdrawalAmount > accMoney) {
+        printf("\tTransaction Failed! Invalid input, amount must be greater than 0, or insufficient funds.\n");
+        while (getchar() != '\n'); 
+    } else {
+        accMoney -= withdrawalAmount;
         printf("\tTransaction Completed! Your updated balance is: %.2lf\n", accMoney);
     }
 }
